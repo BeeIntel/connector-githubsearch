@@ -51,12 +51,12 @@ echo '{}' > /path/on/host/seen.json
 
 Project structure:
 .
-├── Dockerfile
-├── docker-compose.yml
-├── README.md
-└── src/
-    ├── githubbot_send_OpenCTI.py
-    └── requirements.txt
+── Dockerfile
+── docker-compose.yml
+── README.md
+── src/
+    ── githubbot_send_OpenCTI.py
+    ── requirements.txt
 
 Build the image:
 ```bash
