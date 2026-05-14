@@ -1,0 +1,20 @@
+version: "3"
+services:
+  githubbot:
+    image: opencti_6.4.11/githubbot:latest	
+    volumes:
+      - /home/GitHubBot:/app/data
+    environment:
+      - OPENCTI_URL=ChangeMe
+      - OPENCTI_TOKEN=ChangeMe
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - QUERIES=tele.com,лидертелеком
+      - PER_PAGE=100
+      - MAX_PAGES=10
+      - COMMIT_DELAY=0.5
+      - SEARCH_MIN_INTERVAL=6
+      - INTERVAL=3600
+    restart: always
+    depends_on:
+      opencti:
+        condition: service_healthy
