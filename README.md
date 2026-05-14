@@ -49,18 +49,9 @@ echo '{}' > /path/on/host/seen.json
 
 ## Building the Docker Image
 
-Project structure:
-.
-── Dockerfile
-── docker-compose.yml
-── README.md
-── src/
-    ── githubbot_send_OpenCTI.py
-    ── requirements.txt
-
 Build the image:
 ```bash
-docker build -t gitsearch/opencti-6.4.11:latest .
+docker build -t opencti_6.4.11/githubbot:latest .
 ```
 
 ## Running with Docker Compose
@@ -77,7 +68,7 @@ Example `docker-compose.yml` (adjusted):
 version: "3"
 services:
   githubbot:
-    image: gitsearch/opencti-6.4.11:latest
+    image: opencti_6.4.11/githubbot:latest
     volumes:
       - /home/GitHubBot/seen.json:/app/seen.json
     environment:
@@ -105,8 +96,8 @@ services:
 
 1. Build the image on a machine with Docker:
 ```bash
-docker build -t gitsearch/opencti-6.4.11:latest .
-docker save gitsearch/opencti-6.4.11:latest -o githubbot.tar
+docker build -t opencti_6.4.11/githubbot:latest .
+docker save opencti_6.4.11/githubbot:latest -o githubbot.tar
 ```
 
 2. In Portainer, go to **Images** → **Import** and upload the `.tar` file.
@@ -116,7 +107,7 @@ docker save gitsearch/opencti-6.4.11:latest -o githubbot.tar
 
 1. In Portainer, navigate to **Images** → **Build image**.
 2. Upload the `Dockerfile` and the `src/` folder (or point to a Git repository).
-3. Tag the image (e.g., `gitsearch/opencti-6.4.11:latest`).
+3. Tag the image (e.g., `opencti_6.4.11/githubbot:latest`).
 4. Go to **Stacks** → **Add stack**, paste the `docker-compose.yml` content, and deploy.
 
 ## Manual Testing (without Docker)
